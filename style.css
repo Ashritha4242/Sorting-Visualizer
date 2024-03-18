@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightblue;
+}
+
+.container{
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap:5px;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding:10px;
+    align-items: center;
+    width: 200px;
+    height: 300px;
+    background: white;
+
+}
+.stage{
+    position: relative;
+    display: flex;
+    height: 300px;
+    background-color:brown;
+    padding: 10px;
+    border-radius: 5px;
+    align-items:flex-start ;
+}
+.bar{
+    position: absolute;
+    height: 100px;
+    background: ;
+    transition: all 300ms ease-out;
+    border-radius: 6px;
+}
+.bar.activate{
+    background: ;
+    transition-property: 0.3s;
+    animation: upAndDownScale 1.5s ease-in-out;
+}
+/* @keyframes are used as ruels  */
+@keyframes upAndDownScale{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.generate-new{
+    display: flex;
+    padding: 5px;
+    margin: ;
+    border: 2px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.generate-new input{
+    padding: 2px;
+    margin: 5px;
+    /* justify-content: center; */
+    
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap:10px;
+}
+
+button{
+    background-color:rgb(146, 50, 235) ;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px 12px;
+    color: aliceblue;
+}
+button:hover{
+    background-color: chocolate;
+}
+.select-algorithm{
+    display: flex;
+    flex-direction: column;
+    padding:5px;
+    /* margin: 2px 0px; */
+    font-size: small;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(244, 230, 37);
+}
+
+.select-algorithm select{
+    background-color: azure;
+    padding: 2px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.select-algorithm select option{
+    padding: 30px;
+
+}

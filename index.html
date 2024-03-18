@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <div class="sidebar">
+            <!-- You got that select any of the bubble sort and etc because of this select  to  select-->
+            <select name="" id="selectalgorithm" class="select-algorithm">
+            <option value="bubblesort">Bubble Sort</option>
+            <option value="selectionsort">Selection Sort</option>
+            <option value="quicksort">Quick Sort</option>
+        </select>
+        <!-- generated new array here  -->
+        <div class="generate-new">
+            <p>Generate New Array</p>
+            <input type="number" id="numbersBars" class="sizeArray" max="20" min="1" value="10">
+            <button id="generateBtn">New</button>
+        </div>
+        <!-- solve button -->
+        <div class="buttons">
+            <button id="solveBtn">Solve</button>
+        </div>
+        </div>
+        <div class="stage" id="stage"></div>
+    </div>
+
+    <script src="helpers/sortingAlgorithms.js"></script>
 </body>
 </html>
