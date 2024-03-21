@@ -73,6 +73,24 @@ class SortingAlgorithms{
     return swaps;
     }
 
+    insertionSort(array){
+        const swaps=[]
+        for (let i = 0; i < array.length-2; i++) {
+            for (let j = i+1; j >0; j--) {
+                if(array[j]<array[j-1]){
+                    let temp=array[j]
+                    array[j]=array[j-1]
+                    array[j-1]=temp
+                    swaps.push({firstPosition:j,lastPosition:j-1})
+                }
+                else{
+                    break;
+                }
+            }  
+        }
+        return swaps
+    }
+
     selectionSort(array){
         const swaps=[]
         let min
@@ -97,6 +115,9 @@ quickSort(array,compareFn=defaultCompare){
     quick(array,0,array.length-1,compareFn)
     return swaps
 }
+
+
+
 }
 export{
     SortingAlgorithms
