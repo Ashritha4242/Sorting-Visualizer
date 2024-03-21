@@ -34,16 +34,17 @@ body{
     padding: 10px;
     border-radius: 5px;
     align-items:flex-start ;
+    /* width: 300px; */
 }
 .bar{
     position: absolute;
     height: 100px;
-    background: ;
+    background:white ;
     transition: all 300ms ease-out;
     border-radius: 6px;
 }
 .bar.activate{
-    background: ;
+    background:#65d84e;
     transition-property: 0.3s;
     animation: upAndDownScale 1.5s ease-in-out;
 }
