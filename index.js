@@ -1,5 +1,8 @@
-import {sleep  } from "./helpers/util.js";
-import { SortingAlgorithms } from "./helpers/sortingAlgorithms.js";
+// import {sleep} from "./helpers/util.js";
+import {SortingAlgorithms} from "./helpers/sortingAlgorithms.js";
+
+import {sleep} from "./helpers/util.js"
+
 
 let nBars=10
 let numberBars=document.getElementById('numbersBars')
@@ -36,7 +39,7 @@ const start=()=>{
     //    This sets the horizontal position of the current bar. It seems to be arranging the bars with a 
     // fixed margin of 5 pixels and increasing the position by 30 pixels for each bar.
         bar.style.left=`${5+i*30}px`
-        bars[i]={...bar[i],position:i}
+        bars[i]={...bars[i],position:i}
         // class might be used to apply styling to the bars via CSS.
         bar.classList.add('bar')
         barsDiv.push(bar)
@@ -47,7 +50,45 @@ start()
 
 async function swapBars(barsDiv,i,j){
     barsDiv[i].style.left=`${5+j*30}px`
-    barsDiv[i]
+    barsDiv[i].classList.add('activate')
+    barsDiv[j].style.left=`${5+i*30}px`
+    barsDiv[j].classList.add('activate')
+    await sleep(300)
+    barsDiv[i].classList.remove('activate')
+    barsDiv[j].classList.remove('activate')
+    let temp=barsDiv[i]
+    barsDiv[i]=barsDiv[j]
+    barsDiv[j]=temp
 
 }
+
+const algorithms=[
+    sortingAlgorithms.bubbleSort,
+    sortingAlgorithms.selectionSort,
+    sortingAlgorithms.quickSort
+]
+
+const solve=async()=>{
+    const array=structuredClone(bars.map(el=>el.height))
+
+    const swaps=algorithms[selectalgorithm.selectedIndex](array)
+
+    for (let i = 0; i < swaps.length; i++) {
+       if(swaps[i].firstPosition!=swaps[i].lastPosition){
+        await swapBars(barsDiv,swaps[i].firstPosition,swaps[i].lastPosition)
+       }
+    }
+}
+
+generateBtn.addEventListener('click',()=>{
+    nBars=parseInt(numberBars.value,10)
+    stage.style.width=`${nBars * 30}px`
+    start()
+})
+
+solveBtn.addEventListener('click',()=>{
+    solve()
+})
+
+
 
