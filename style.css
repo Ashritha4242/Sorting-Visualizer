@@ -64,7 +64,7 @@ body{
 .generate-new{
     display: flex;
     padding: 5px;
-    margin: ;
+    /* margin: ; */
     border: 2px solid black;
     flex-direction: column;
     align-items: center;

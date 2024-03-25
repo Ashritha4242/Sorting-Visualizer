@@ -100,8 +100,7 @@ class SortingAlgorithms{
             for (let j = i+1; j < array.length; j++) {
                if(array[j]<array[min]){
                 min=j
-               }
-                
+               }  
             }
             let temp=array[min]
             array[min]=array[i]
@@ -116,9 +115,6 @@ quickSort(array,compareFn=defaultCompare){
     quick(array,0,array.length,compareFn)
     return swaps
 }
-
-
-
 }
 export{
     SortingAlgorithms
