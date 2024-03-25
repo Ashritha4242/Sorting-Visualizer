@@ -7,7 +7,7 @@ const defaultCompare=(a,b)=>{
     if(a===b){
         return 0
     }
-    return a<b? Compare.LESS_THAN:Compare.BIGGER_THAN
+    return a<b ? Compare.LESS_THAN : Compare.BIGGER_THAN
 }
 
 
@@ -45,15 +45,16 @@ const quick=(array,left,right,compareFn)=>{
             quick(array,left,index-1,compareFn)
         }
         if(index<right){
-            quick(array,index,right,compareFn)
+            quick(array,index+1,right,compareFn)
         }
     }
     return array
 }
+
 class SortingAlgorithms{
-    constructor({swapBars}){
-        this.swapBars=swapBars;
-    }
+    // constructor({swapBars}){
+    //     this.swapBars=swapBars;
+    // }
     bubbleSort(array){
         const swaps=[]
         for (let i = 0; i < array.length; i++) {
@@ -83,9 +84,9 @@ class SortingAlgorithms{
                     array[j-1]=temp
                     swaps.push({firstPosition:j,lastPosition:j-1})
                 }
-                else{
-                    break;
-                }
+                // else{
+                //     break;
+                // }
             }  
         }
         return swaps
@@ -112,7 +113,7 @@ class SortingAlgorithms{
 
 quickSort(array,compareFn=defaultCompare){
     swaps=[]
-    quick(array,0,array.length-1,compareFn)
+    quick(array,0,array.length,compareFn)
     return swaps
 }
 
