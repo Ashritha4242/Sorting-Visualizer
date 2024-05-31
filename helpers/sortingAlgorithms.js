@@ -76,18 +76,15 @@ class SortingAlgorithms{
 
     insertionSort(array){
         const swaps=[]
-        for (let i = 0; i < array.length-2; i++) {
-            for (let j = i+1; j >0; j--) {
-                if(array[j]<array[j-1]){
-                    let temp=array[j]
-                    array[j]=array[j-1]
-                    array[j-1]=temp
-                    swaps.push({firstPosition:j,lastPosition:j-1})
-                }
-                // else{
-                //     break;
-                // }
-            }  
+        for (let i = 1; i < array.length; i++) {
+            let j = i;
+            while (j > 0 && array[j] < array[j - 1]) {
+                let temp = array[j];
+                array[j] = array[j - 1];
+                array[j - 1] = temp;
+                swaps.push({ firstPosition: j, lastPosition: j - 1 });
+                j--;
+            }
         }
         return swaps
     }
@@ -102,18 +99,20 @@ class SortingAlgorithms{
                 min=j
                }  
             }
+            if(min!==i){
             let temp=array[min]
             array[min]=array[i]
             array[i]=temp
             swaps.push({firstPosition:min,lastPosition:i})
         }
+    }
         return swaps
     }
 
 quickSort(array,compareFn=defaultCompare){
-    swaps=[]
-    quick(array,0,array.length,compareFn)
-    return swaps
+    swaps=[];
+    quick(array,0,array.length-1,compareFn);
+    return swaps;
 }
 }
 export{
